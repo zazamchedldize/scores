@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teacher</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="topbar">
+    <h2>👨‍🏫 Teacher Panel</h2>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="container">
+
+<div class="card">
+    <h3>Add Grade</h3>
+
+    <form method="POST">
+        <select name="student">
+            {% for s in students %}
+            <option>{{ s }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="date" name="date">
+
+        <input type="number" name="homework" placeholder="Homework 0-10" min="0" max="10">
+        <input type="number" name="lesson" placeholder="Lesson 0-10" min="0" max="10">
+
+        <input type="number" name="fine" placeholder="Fine 0-5" min="0" max="5">
+        <input type="number" name="plus" placeholder="Plus 0-2" min="0" max="2">
+
+        <button>Save</button>
+    </form>
+</div>
+
+<div class="card wide">
+    <h3>Records</h3>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Student</th>
+            <th>Date</th>
+            <th>HW</th>
+            <th>Lesson</th>
+            <th>Fine</th>
+            <th>+</th>
+            <th>Delete</th>
+        </tr>
+
+        {% for r in data %}
+        <tr>
+            <td>{{ r[0] }}</td>
+            <td>{{ r[1] }}</td>
+            <td>{{ r[2] }}</td>
+            <td>{{ r[3] }}</td>
+            <td>{{ r[4] }}</td>
+            <td>{{ r[5] }}</td>
+            <td>{{ r[6] }}</td>
+            <td><a class="del" href="/delete/{{ r[0] }}">🗑</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+</div>
+
+</body>
+</html>

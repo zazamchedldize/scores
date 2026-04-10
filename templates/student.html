@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="topbar">
+    <h2>🎓 My Grades</h2>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="container">
+
+<div class="card wide">
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Homework</th>
+            <th>Lesson</th>
+            <th>Fine</th>
+            <th>+</th>
+        </tr>
+
+        {% for r in data %}
+        <tr>
+<td>{{ r[2] }}</td>
+<td>{{ r[3] }}</td>
+<td>{{ r[4] }}</td>
+<td>{{ r[5] }}</td>
+<td>{{ r[6] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</div>
+
+</body>
+</html>
